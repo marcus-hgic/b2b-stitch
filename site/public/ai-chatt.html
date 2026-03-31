@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sv"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI-chatt | Vården.se</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#e8eefd",
+              "outline": "#6f797c",
+              "tertiary-fixed": "#eedfdf",
+              "on-surface-variant": "#3f484b",
+              "primary": "#004655",
+              "on-secondary-fixed-variant": "#7d2b1e",
+              "surface-container-low": "#f0f3ff",
+              "surface-bright": "#f9f9ff",
+              "tertiary-fixed-dim": "#d1c3c3",
+              "tertiary-container": "#5e5454",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#b1ecff",
+              "on-tertiary-fixed-variant": "#4e4445",
+              "on-primary-fixed-variant": "#004e5e",
+              "surface-dim": "#d4dae9",
+              "on-secondary-container": "#76261a",
+              "on-background": "#161c27",
+              "background": "#f9f9ff",
+              "secondary-fixed": "#ffdad4",
+              "on-surface": "#161c27",
+              "secondary": "#9c4233",
+              "surface-container-lowest": "#ffffff",
+              "inverse-primary": "#8cd1e6",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff8f7b",
+              "surface": "#f9f9ff",
+              "inverse-on-surface": "#ecf0ff",
+              "on-primary-fixed": "#001f27",
+              "primary-fixed-dim": "#8cd1e6",
+              "primary-container": "#055f72",
+              "surface-tint": "#17677a",
+              "on-secondary-fixed": "#400200",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#e3e8f8",
+              "surface-container-highest": "#dde2f2",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#211a1a",
+              "secondary-fixed-dim": "#ffb4a6",
+              "on-tertiary-container": "#d7c9c9",
+              "tertiary": "#463d3d",
+              "surface-variant": "#dde2f2",
+              "outline-variant": "#bfc8cc",
+              "error": "#ba1a1a",
+              "inverse-surface": "#2b313c",
+              "on-primary-container": "#92d7ed",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; color: #161c27; }
+        .satoshi { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .nordic-mist { box-shadow: 0 8px 24px rgba(22, 28, 39, 0.04); }
+        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+        .clinical-gradient { background: linear-gradient(135deg, #004655 0%, #055f72 100%); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-answer.open { max-height: 200px; }
+        .chat-bubble { animation: fadeInUp 0.5s ease-out forwards; opacity: 0; }
+        .chat-bubble:nth-child(1) { animation-delay: 0.2s; }
+        .chat-bubble:nth-child(2) { animation-delay: 0.6s; }
+        .chat-bubble:nth-child(3) { animation-delay: 1.0s; }
+        .chat-bubble:nth-child(4) { animation-delay: 1.4s; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#055F72] shadow-lg shadow-black/10">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="text-2xl font-bold tracking-tight text-white satoshi">Vården.se</a>
+        <div class="hidden md:flex items-center gap-x-8">
+            <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="tjanster.html">Tjänster</a>
+            <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="appointments.html">Appointments</a>
+            <a class="text-white border-b-2 border-[#FE8E7A] pb-1 font-medium" href="ai-chatt.html">AI-chatt</a>
+            <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="kontakt.html">Kontakt</a>
+        </div>
+        <a href="kontakt.html" class="bg-[#FE8E7A] text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all duration-200">
+            Boka kostnadsfri genomgång
+        </a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="pt-32 pb-20 px-6 lg:px-12 bg-surface">
+    <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7 space-y-8">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-[#4D9BA9]/15 text-[#4D9BA9] text-sm font-semibold tracking-widest uppercase">AI-chatt</span>
+            <h1 class="text-5xl lg:text-6xl font-extrabold satoshi text-on-surface leading-[1.1] tracking-tight">
+                Skräddarsydd AI-chatt för din mottagning
+            </h1>
+            <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                Ge dina patienter omedelbar hjälp dygnet runt. Vår AI-assistent svarar på frågor, hjälper med tidbokning och talar alla språk.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="kontakt.html" class="clinical-gradient text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform inline-block">
+                    Boka gratis demo
+                </a>
+                <a href="#hur-det-fungerar" class="bg-surface-container-lowest border border-outline-variant/20 px-8 py-4 rounded-xl font-bold text-primary hover:bg-surface-container-low transition-colors inline-block">
+                    Se hur det fungerar
+                </a>
+            </div>
+            <div class="flex flex-wrap gap-6 pt-2">
+                <div class="flex items-center gap-2 text-sm text-on-surface-variant">
+                    <span class="material-symbols-outlined text-[#4D9BA9] text-lg">check_circle</span>
+                    Gratis testperiod
+                </div>
+                <div class="flex items-center gap-2 text-sm text-on-surface-variant">
+                    <span class="material-symbols-outlined text-[#4D9BA9] text-lg">check_circle</span>
+                    Inget kreditkort
+                </div>
+                <div class="flex items-center gap-2 text-sm text-on-surface-variant">
+                    <span class="material-symbols-outlined text-[#4D9BA9] text-lg">check_circle</span>
+                    Klart på 5 min
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-5 relative">
+            <div class="absolute -inset-4 bg-primary-fixed/20 blur-3xl rounded-full"></div>
+            <div class="relative rounded-2xl overflow-hidden nordic-mist border border-outline-variant/10 bg-white p-6">
+                <!-- Chat Widget Mockup -->
+                <div class="flex items-center gap-3 pb-4 border-b border-outline-variant/15 mb-4">
+                    <div class="w-10 h-10 rounded-full clinical-gradient flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-lg">smart_toy</span>
+                    </div>
+                    <div>
+                        <div class="font-bold satoshi text-sm">Vården.se AI-assistent</div>
+                        <div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+                            <span class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+                            Online
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3 min-h-[280px]">
+                    <div class="chat-bubble flex justify-start">
+                        <div class="bg-surface-container-low rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] text-sm">
+                            Hej! Jag är din AI-assistent. Hur kan jag hjälpa dig idag?
+                        </div>
+                    </div>
+                    <div class="chat-bubble flex justify-end">
+                        <div class="bg-[#055F72] text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] text-sm">
+                            Jag vill boka en tid hos en hudläkare
+                        </div>
+                    </div>
+                    <div class="chat-bubble flex justify-start">
+                        <div class="bg-surface-container-low rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] text-sm">
+                            Självklart! Jag ser att Dr. Eriksson har lediga tider imorgon kl 10:00 och 14:30. Passar någon av dessa?
+                        </div>
+                    </div>
+                    <div class="chat-bubble flex justify-end">
+                        <div class="bg-[#055F72] text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%] text-sm">
+                            Kl 10:00 passar bra!
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-outline-variant/15">
+                    <div class="flex items-center gap-3 bg-surface-container-low rounded-xl px-4 py-3">
+                        <span class="text-sm text-outline">Skriv ett meddelande...</span>
+                        <span class="material-symbols-outlined text-[#055F72] ml-auto">send</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Features Grid -->
+<section class="py-24 bg-[#F1F3F7] px-6">
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold satoshi mb-4">Allt du behöver för smart patientkommunikation</h2>
+            <div class="w-16 h-1 bg-[#4D9BA9] rounded-full mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Dygnet runt -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">schedule</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">Dygnet runt</h3>
+                <p class="text-on-surface-variant leading-relaxed">Ge svar direkt utan att patienter ringer. Tillgänglig 24/7.</p>
+            </div>
+            <!-- Card 2: Enkel tidbokning -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">calendar_today</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">Enkel tidbokning</h3>
+                <p class="text-on-surface-variant leading-relaxed">Patienter ser lediga tider direkt i chatten.</p>
+            </div>
+            <!-- Card 3: 50+ språk -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">language</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">50+ språk</h3>
+                <p class="text-on-surface-variant leading-relaxed">Svara automatiskt på alla frågor oavsett språk.</p>
+            </div>
+            <!-- Card 4: Röstsamtal -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">call</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">Röstsamtal</h3>
+                <p class="text-on-surface-variant leading-relaxed">Patienter kan prata direkt med AI-assistenten.</p>
+            </div>
+            <!-- Card 5: Instagram DM -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">photo_camera</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">Instagram DM</h3>
+                <p class="text-on-surface-variant leading-relaxed">Svara på frågor direkt i Instagram DM.</p>
+            </div>
+            <!-- Card 6: Mobilvänlig -->
+            <div class="p-8 rounded-2xl bg-white border border-outline-variant/10 nordic-mist hover:translate-y-[-4px] transition-all group">
+                <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">smartphone</span>
+                </div>
+                <h3 class="text-xl font-bold satoshi mb-3">Mobilvänlig</h3>
+                <p class="text-on-surface-variant leading-relaxed">Perfekt anpassad för mobil, surfplatta och dator.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section id="hur-det-fungerar" class="py-24 bg-surface px-6">
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-bold satoshi mb-4">Klart på under 5 minuter</h2>
+            <p class="text-on-surface-variant text-lg">Ingen teknisk kunskap krävs.</p>
+        </div>
+        <div class="relative">
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <div class="bg-surface flex flex-col items-center text-center px-4">
+                    <div class="w-16 h-16 rounded-full clinical-gradient text-white flex items-center justify-center text-2xl font-bold mb-8 z-10">1</div>
+                    <h4 class="text-xl font-bold satoshi mb-3">Lägg till en rad kod</h4>
+                    <p class="text-on-surface-variant">Kopiera och klistra in vår widget. Klart under en minut.</p>
+                </div>
+                <div class="bg-surface flex flex-col items-center text-center px-4">
+                    <div class="w-16 h-16 rounded-full clinical-gradient text-white flex items-center justify-center text-2xl font-bold mb-8 z-10">2</div>
+                    <h4 class="text-xl font-bold satoshi mb-3">Anpassa till din klinik</h4>
+                    <p class="text-on-surface-variant">Välj färger, logotyp och hälsningsfras.</p>
+                </div>
+                <div class="bg-surface flex flex-col items-center text-center px-4">
+                    <div class="w-16 h-16 rounded-full clinical-gradient text-white flex items-center justify-center text-2xl font-bold mb-8 z-10">3</div>
+                    <h4 class="text-xl font-bold satoshi mb-3">Börja svara automatiskt</h4>
+                    <p class="text-on-surface-variant">AI:n lär känna er verksamhet och svarar patienterna.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="py-24 bg-[#F1F3F7] px-6">
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold satoshi mb-4">Enkel och transparent prissättning</h2>
+            <div class="w-16 h-1 bg-[#4D9BA9] rounded-full mx-auto"></div>
+        </div>
+        <div class="max-w-xl mx-auto">
+            <div class="bg-white rounded-3xl p-10 nordic-mist border border-outline-variant/10">
+                <div class="text-center mb-8">
+                    <p class="text-on-surface-variant font-medium mb-2">Allt ingår</p>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span class="text-5xl font-extrabold satoshi text-on-surface">1 995</span>
+                        <span class="text-xl font-bold satoshi text-on-surface-variant">kr/mån</span>
+                    </div>
+                    <p class="text-sm text-outline mt-2">exkl. moms</p>
+                </div>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Obegränsat antal chattkonversationer</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Tillgänglig dygnet runt</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">50+ språk</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Röstsamtal med AI-assistent</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Instagram DM-integration</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Anpassad till din kliniks profil</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Integration med journalsystem</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Admingränssnitt för insikter</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#4D9BA9]">check_circle</span>
+                        <span class="text-on-surface">Personlig onboarding</span>
+                    </div>
+                </div>
+                <a href="kontakt.html" class="block w-full clinical-gradient text-white py-4 rounded-xl font-bold text-center shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
+                    Kom igång nu
+                </a>
+                <p class="text-center text-sm text-outline mt-4">Ingen bindningstid. Avsluta när du vill.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 bg-surface px-6">
+    <div class="max-w-screen-2xl mx-auto">
+        <h2 class="text-4xl font-bold satoshi text-center mb-16">Vad våra kunder säger</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-surface-container-lowest p-8 rounded-2xl nordic-mist">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full clinical-gradient flex items-center justify-center text-white font-bold satoshi">AL</div>
+                    <div>
+                        <div class="font-bold satoshi">Dr. Anna Lindberg</div>
+                        <div class="text-xs text-outline">Gynekolog &amp; FertilitetsCenter</div>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant italic leading-relaxed">"AI-chatten har minskat våra administrativa samtal med 40%."</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-2xl nordic-mist">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#4D9BA9] flex items-center justify-center text-white font-bold satoshi">ME</div>
+                    <div>
+                        <div class="font-bold satoshi">Maria Eriksson</div>
+                        <div class="text-xs text-outline">Göteborgs IVF Klinik</div>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant italic leading-relaxed">"Röstsamtalsfunktionen är fantastisk! Äldre patienter kan prata direkt med vår AI-assistent."</p>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-2xl nordic-mist">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#055F72] flex items-center justify-center text-white font-bold satoshi">JA</div>
+                    <div>
+                        <div class="font-bold satoshi">Johan Andersson</div>
+                        <div class="text-xs text-outline">VD, Aesthetica</div>
+                    </div>
+                </div>
+                <p class="text-on-surface-variant italic leading-relaxed">"Personalen kan fokusera på det som verkligen kräver mänsklig kontakt."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 bg-[#F1F3F7] px-6">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold satoshi text-center mb-16">Vanliga frågor</h2>
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="bg-white rounded-2xl nordic-mist border border-outline-variant/10 overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                    <span class="font-bold satoshi text-on-surface">Hur lång tid tar det att komma igång?</span>
+                    <span class="material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="px-6 pb-6 text-on-surface-variant leading-relaxed">5 minuter. Kopiera kod, välj färger, klart.</p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="bg-white rounded-2xl nordic-mist border border-outline-variant/10 overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                    <span class="font-bold satoshi text-on-surface">Kan AI:n svara fel?</span>
+                    <span class="material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="px-6 pb-6 text-on-surface-variant leading-relaxed">AI:n ställer aldrig diagnoser. Vid osäkerhet hänvisar den till kliniken.</p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="bg-white rounded-2xl nordic-mist border border-outline-variant/10 overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                    <span class="font-bold satoshi text-on-surface">Fungerar med vårt bokningssystem?</span>
+                    <span class="material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="px-6 pb-6 text-on-surface-variant leading-relaxed">Ja, vi integrerar med de flesta nordiska system.</p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="bg-white rounded-2xl nordic-mist border border-outline-variant/10 overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                    <span class="font-bold satoshi text-on-surface">Hur hanteras GDPR?</span>
+                    <span class="material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="px-6 pb-6 text-on-surface-variant leading-relaxed">EU-servrar, GDPR-kompatibelt, data delas aldrig med tredje part.</p>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="bg-white rounded-2xl nordic-mist border border-outline-variant/10 overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left">
+                    <span class="font-bold satoshi text-on-surface">Kan vi anpassa AI:ns svar?</span>
+                    <span class="material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="px-6 pb-6 text-on-surface-variant leading-relaxed">Absolut. Anpassa ton, info, öppettider och tjänster.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-[#F9EAEA] px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl lg:text-5xl font-extrabold satoshi mb-6 text-on-surface">Redo att förbättra din patientkommunikation?</h2>
+        <p class="text-xl text-on-surface-variant mb-10 max-w-2xl mx-auto leading-relaxed">Boka en kostnadsfri demo och se hur vår AI-assistent kan hjälpa just din klinik.</p>
+        <a href="kontakt.html" class="clinical-gradient text-white px-10 py-5 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl inline-block">
+            Boka gratis demo
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#181E29] border-t border-slate-800">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+        <div class="space-y-4">
+            <div class="text-xl font-bold text-white satoshi">Vården.se</div>
+            <p class="text-slate-400 text-sm">Sveriges största samlingsplats för vård och hälsa. Vi hjälper vårdgivare och patienter att hitta varandra.</p>
+        </div>
+        <div class="space-y-4">
+            <h5 class="text-white font-medium satoshi">Meny</h5>
+            <ul class="space-y-2">
+                <li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-[#FE8E7A] underline-offset-4 text-sm tracking-wide" href="tjanster.html">Tjänster</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-[#FE8E7A] underline-offset-4 text-sm tracking-wide" href="appointments.html">Appointments</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-[#FE8E7A] underline-offset-4 text-sm tracking-wide" href="ai-chatt.html">AI-chatt</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-colors hover:underline decoration-[#FE8E7A] underline-offset-4 text-sm tracking-wide" href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h5 class="text-white font-medium satoshi">Kontakt</h5>
+            <ul class="space-y-2">
+                <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:salj@varden.se">salj@varden.se</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:support@varden.se">support@varden.se</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:ekonomi@varden.se">ekonomi@varden.se</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h5 class="text-white font-medium satoshi">Följ oss</h5>
+            <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-sm">share</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-screen-2xl mx-auto px-8 py-6 border-t border-slate-800/50 flex justify-between items-center">
+        <p class="text-slate-500 text-xs">&copy; 2026 Vården.se. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a class="text-slate-500 hover:text-white text-xs" href="#">Integritetspolicy</a>
+            <a class="text-slate-500 hover:text-white text-xs" href="#">Cookies</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleFaq(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('.material-symbols-outlined');
+        answer.classList.toggle('open');
+        icon.style.transform = answer.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+</script>
+</body></html>

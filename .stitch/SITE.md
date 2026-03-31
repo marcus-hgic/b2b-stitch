@@ -21,8 +21,8 @@ consultation ("Boka kostnadsfri genomgång").
 - [x] index — Landing page with hero, ecosystem, pain points, social proof
 - [x] tjanster — Complete product/service overview
 - [ ] appointments — Flagship booking product deep-dive
-- [ ] ai-chatt — AI chat product deep-dive
-- [ ] kontakt — Lead form + contact details
+- [x] ai-chatt — AI chat product deep-dive
+- [x] kontakt — Lead form + contact details
 
 ## 5. Roadmap
 1. index
