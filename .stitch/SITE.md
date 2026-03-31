@@ -18,7 +18,7 @@ consultation ("Boka kostnadsfri genomgång").
 - Simple onboarding, measurable results
 
 ## 4. Sitemap
-- [ ] index — Landing page with hero, ecosystem, pain points, social proof
+- [x] index — Landing page with hero, ecosystem, pain points, social proof
 - [ ] tjanster — Complete product/service overview
 - [ ] appointments — Flagship booking product deep-dive
 - [ ] ai-chatt — AI chat product deep-dive
