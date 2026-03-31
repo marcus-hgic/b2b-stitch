@@ -12,6 +12,16 @@
       "height": "10840",
       "htmlFile": "designs/index.html",
       "screenshotFile": "designs/index.png"
+    },
+    "tjanster": {
+      "screenId": "ead52917006b4bfab8f541e975589232",
+      "name": "projects/14917283198888521119/screens/ead52917006b4bfab8f541e975589232",
+      "title": "Vården.se B2B Services Page",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "10326",
+      "htmlFile": "designs/tjanster.html",
+      "screenshotFile": "designs/tjanster.png"
     }
   },
   "createTime": "2026-03-31T15:26:36.751487Z",

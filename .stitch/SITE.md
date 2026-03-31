@@ -19,7 +19,7 @@ consultation ("Boka kostnadsfri genomgång").
 
 ## 4. Sitemap
 - [x] index — Landing page with hero, ecosystem, pain points, social proof
-- [ ] tjanster — Complete product/service overview
+- [x] tjanster — Complete product/service overview
 - [ ] appointments — Flagship booking product deep-dive
 - [ ] ai-chatt — AI chat product deep-dive
 - [ ] kontakt — Lead form + contact details
