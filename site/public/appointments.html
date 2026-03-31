@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="light" lang="sv"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appointments — Bokningswidget | Vården.se</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"duck-blue":"#055F72","duck-blue-light":"#4D9BA9",apricot:"#FE8E7A","apricot-bg":"#F9EAEA",ink:"#181E29","slate-text":"#566075",cloud:"#F1F3F7"},fontFamily:{headline:["Manrope","sans-serif"],body:["Inter","sans-serif"]}}}}
+</script>
+<style>
+body{font-family:'Inter',sans-serif;color:#181E29}
+.satoshi{font-family:'Manrope',sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.nordic-shadow{box-shadow:0 8px 24px rgba(22,28,39,.04)}
+.clinical-gradient{background:linear-gradient(135deg,#004655 0%,#055F72 100%)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease-out}
+.faq-answer.open{max-height:300px}
+</style>
+</head>
+<body class="overflow-x-hidden bg-white">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-duck-blue shadow-lg shadow-black/10">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+    <a href="index.html" class="text-2xl font-bold tracking-tight text-white satoshi">Vården.se</a>
+    <div class="hidden md:flex items-center gap-x-8">
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="tjanster.html">Tjänster</a>
+      <a class="text-white border-b-2 border-apricot pb-1 font-medium" href="appointments.html">Appointments</a>
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="ai-chatt.html">AI-chatt</a>
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="kontakt.html">Kontakt</a>
+    </div>
+    <a href="kontakt.html" class="bg-apricot text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all">Boka kostnadsfri genomgång</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="pt-32 pb-20 px-6 lg:px-12 bg-white">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-7 space-y-8">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-duck-blue-light/15 text-duck-blue-light text-sm font-semibold tracking-widest uppercase">Våra tjänster</span>
+      <h1 class="text-5xl lg:text-6xl font-extrabold satoshi text-ink leading-[1.1] tracking-tight">Förenkla bokning på er egna hemsida med Appointments</h1>
+      <p class="text-lg text-slate-text max-w-xl leading-relaxed">Följ med i den digitala utvecklingen och ge patienter en snabbare, mer tillgänglig bokningsupplevelse. Vården.se har över 10 års erfarenhet av hur människor söker och bokar vård online.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="kontakt.html" class="clinical-gradient text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-duck-blue/20 hover:scale-[1.02] transition-transform inline-block">Boka kostnadsfri genomgång</a>
+        <a href="#features" class="bg-white border border-slate-200 px-8 py-4 rounded-xl font-bold text-duck-blue hover:bg-cloud transition-colors inline-block">Se funktioner</a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 flex justify-center">
+      <div class="w-72 h-[500px] bg-cloud rounded-3xl border border-slate-200 nordic-shadow flex flex-col items-center justify-center p-6 text-center">
+        <span class="material-symbols-outlined text-duck-blue text-6xl mb-4">calendar_month</span>
+        <p class="text-sm text-slate-text font-medium">Appointments Widget</p>
+        <p class="text-xs text-slate-text/60 mt-1">Bokningsflöde direkt på er hemsida</p>
+        <div class="mt-6 space-y-2 w-full">
+          <div class="bg-white rounded-lg p-3 text-left border border-slate-100"><span class="text-xs text-slate-text">Mån 14 apr</span><div class="flex gap-2 mt-1"><span class="bg-duck-blue/10 text-duck-blue text-xs px-2 py-1 rounded">09:00</span><span class="bg-duck-blue/10 text-duck-blue text-xs px-2 py-1 rounded">10:30</span><span class="bg-duck-blue/10 text-duck-blue text-xs px-2 py-1 rounded">14:00</span></div></div>
+          <div class="bg-white rounded-lg p-3 text-left border border-slate-100"><span class="text-xs text-slate-text">Tis 15 apr</span><div class="flex gap-2 mt-1"><span class="bg-duck-blue/10 text-duck-blue text-xs px-2 py-1 rounded">08:00</span><span class="bg-duck-blue/10 text-duck-blue text-xs px-2 py-1 rounded">11:00</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- What is Appointments -->
+<section class="py-24 px-6 lg:px-12 bg-cloud">
+  <div class="max-w-screen-lg mx-auto text-center space-y-6">
+    <h2 class="text-3xl lg:text-4xl font-extrabold satoshi">Vad är Appointments?</h2>
+    <p class="text-lg text-slate-text max-w-2xl mx-auto leading-relaxed">En bokningswidget som integreras direkt med ert befintliga bokningssystem. Widgeten gör det möjligt för patienter att boka tid på er hemsida 24/7, vilket sparar tid för både personal och patienter.</p>
+    <div class="inline-flex items-center gap-3 bg-white rounded-2xl px-8 py-5 nordic-shadow mt-4">
+      <span class="material-symbols-outlined text-duck-blue text-4xl">trending_down</span>
+      <div class="text-left">
+        <p class="text-3xl font-extrabold satoshi text-duck-blue">Upp till 25 %</p>
+        <p class="text-slate-text text-sm">mindre tid på admin</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features zig-zag -->
+<section id="features" class="py-24 px-6 lg:px-12 bg-white">
+  <div class="max-w-screen-xl mx-auto space-y-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="bg-cloud rounded-2xl h-64 flex items-center justify-center nordic-shadow"><span class="material-symbols-outlined text-duck-blue-light text-7xl">devices</span></div>
+      <div class="space-y-4"><h3 class="text-2xl font-extrabold satoshi">Placera bokningsflödet där det passar bäst</h3><p class="text-slate-text leading-relaxed">Som pop-up vid knapptryck eller direkt på en landningssida. Oavsett flöde, ärendetyp eller journalsystem erbjuder Appointments en enhetlig användarupplevelse utan att kräva en mobilapp.</p></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-4 order-2 lg:order-1"><h3 class="text-2xl font-extrabold satoshi">Anpassa designen till er verksamhet</h3><p class="text-slate-text leading-relaxed">Integrera Appointments sömlöst genom att anpassa med er logotyp, färger och typsnitt. Skapa en helhet som känns som en naturlig del av er hemsida.</p></div>
+      <div class="bg-cloud rounded-2xl h-64 flex items-center justify-center nordic-shadow order-1 lg:order-2"><span class="material-symbols-outlined text-duck-blue-light text-7xl">palette</span></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="bg-cloud rounded-2xl h-64 flex items-center justify-center nordic-shadow"><span class="material-symbols-outlined text-duck-blue-light text-7xl">domain</span></div>
+      <div class="space-y-4"><h3 class="text-2xl font-extrabold satoshi">Visa rätt tjänster för rätt kliniker</h3><p class="text-slate-text leading-relaxed">Skräddarsy tjänster för varje klinik och skapa en tydlig bild av ert kompletta utbud — allt på patientens villkor.</p></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-4 order-2 lg:order-1"><h3 class="text-2xl font-extrabold satoshi">Sätt affärsregler med förval</h3><p class="text-slate-text leading-relaxed">Forma bokningsflödet med affärsregler som styr patienten till rätt tjänst och tider. Anpassa vilka ärendetyper och bokningstider som visas, så att produkten möter era unika behov.</p></div>
+      <div class="bg-cloud rounded-2xl h-64 flex items-center justify-center nordic-shadow order-1 lg:order-2"><span class="material-symbols-outlined text-duck-blue-light text-7xl">tune</span></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="bg-cloud rounded-2xl h-64 flex items-center justify-center nordic-shadow"><span class="material-symbols-outlined text-duck-blue-light text-7xl">person_search</span></div>
+      <div class="space-y-4"><h3 class="text-2xl font-extrabold satoshi">Ge patienten kontroll över sitt val av utövare</h3><p class="text-slate-text leading-relaxed">Ge patienter möjligheten att välja utövare när det är relevant. Visa utövare och tillgänglighet smidigt i samma steg.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="py-24 px-6 lg:px-12 bg-cloud">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <h2 class="text-3xl lg:text-4xl font-extrabold satoshi mb-4">Kom igång med Appointments</h2>
+    <p class="text-slate-text mb-16 text-lg">Tre enkla steg till en bokningsbar mottagning.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl p-8 nordic-shadow text-center space-y-4">
+        <div class="w-14 h-14 bg-duck-blue/10 rounded-full flex items-center justify-center mx-auto"><span class="text-duck-blue font-extrabold satoshi text-xl">1</span></div>
+        <h3 class="text-xl font-bold satoshi">Registrera kliniken</h3>
+        <p class="text-slate-text text-sm leading-relaxed">Få en unik SEO-anpassad profil på Vården.se</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 nordic-shadow text-center space-y-4">
+        <div class="w-14 h-14 bg-duck-blue/10 rounded-full flex items-center justify-center mx-auto"><span class="text-duck-blue font-extrabold satoshi text-xl">2</span></div>
+        <h3 class="text-xl font-bold satoshi">Integrera bokning</h3>
+        <p class="text-slate-text text-sm leading-relaxed">Lägg upp Appointments bokningswidget på er hemsida med en enkel kod</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 nordic-shadow text-center space-y-4">
+        <div class="w-14 h-14 bg-duck-blue/10 rounded-full flex items-center justify-center mx-auto"><span class="text-duck-blue font-extrabold satoshi text-xl">3</span></div>
+        <h3 class="text-xl font-bold satoshi">Ta emot bokningar</h3>
+        <p class="text-slate-text text-sm leading-relaxed">Enkelt och tryggt med Mobilt BankID dygnet runt</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Integration logos -->
+<section class="py-16 px-6 lg:px-12 bg-white">
+  <div class="max-w-screen-xl mx-auto text-center">
+    <p class="text-slate-text text-sm font-medium tracking-wider uppercase mb-8">Appointments integrerar med marknadens journalsystem</p>
+    <div class="flex flex-wrap justify-center items-center gap-8 opacity-50 grayscale">
+      <span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Almasoft</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Clinicbuddy</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">EG</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">EG Hano</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Frenda</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Kaddio</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Kuralink</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Metodika</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Muntra</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Opus</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">TeleQ</span><span class="text-sm font-medium px-4 py-2 bg-cloud rounded-lg">Webdoc</span>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 px-6 lg:px-12 bg-cloud">
+  <div class="max-w-screen-xl mx-auto">
+    <h2 class="text-3xl font-extrabold satoshi text-center mb-16">Vad våra kunder säger</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl p-8 nordic-shadow space-y-6">
+        <svg class="w-8 h-8 text-apricot" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+        <p class="text-ink leading-relaxed text-lg">"Med Vården.se har vi ökat våra bokningar med 40 %. Implementationen var snabb och supporten fantastisk."</p>
+        <div><p class="font-bold satoshi text-ink">Rianna Kürren</p><p class="text-slate-text text-sm">Klinikchef, Tandvårdskliniken</p></div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 nordic-shadow space-y-6">
+        <svg class="w-8 h-8 text-apricot" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+        <p class="text-ink leading-relaxed text-lg">"Magiskt enkelt att komma igång. Nu får vi patienter som aktivt söker just den vård vi erbjuder."</p>
+        <div><p class="font-bold satoshi text-ink">Elliot Fvance</p><p class="text-slate-text text-sm">Grundare, Fysioterapikliniken</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 lg:px-12 bg-white">
+  <div class="max-w-screen-md mx-auto">
+    <h2 class="text-3xl font-extrabold satoshi text-center mb-12">Vanliga frågor om Appointments</h2>
+    <div class="space-y-4">
+      <div class="border border-slate-200 rounded-xl overflow-hidden"><button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-ink hover:bg-cloud/50 transition-colors"><span>Hur snabbt kan vi komma igång med Appointments?</span><span class="material-symbols-outlined chevron transition-transform text-slate-text">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-slate-text leading-relaxed">Vi hjälper er med allt från integration till design, så ni kan vara igång och ta emot bokningar inom ett par dagar.</p></div></div>
+      <div class="border border-slate-200 rounded-xl overflow-hidden"><button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-ink hover:bg-cloud/50 transition-colors"><span>Behöver jag byta bokningssystem?</span><span class="material-symbols-outlined chevron transition-transform text-slate-text">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-slate-text leading-relaxed">Nej, Appointments fungerar med de flesta befintliga bokningssystem och anpassas efter era behov.</p></div></div>
+      <div class="border border-slate-200 rounded-xl overflow-hidden"><button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-ink hover:bg-cloud/50 transition-colors"><span>Vad händer om en patient avbokar?</span><span class="material-symbols-outlined chevron transition-transform text-slate-text">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-slate-text leading-relaxed">Avbokningar hanteras direkt i ert bokningssystem och tiderna blir automatiskt tillgängliga för andra patienter.</p></div></div>
+      <div class="border border-slate-200 rounded-xl overflow-hidden"><button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.chevron').classList.toggle('rotate-180')" class="w-full flex justify-between items-center p-5 text-left font-semibold text-ink hover:bg-cloud/50 transition-colors"><span>Kan vi använda Appointments för flera kliniker?</span><span class="material-symbols-outlined chevron transition-transform text-slate-text">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-slate-text leading-relaxed">Ja, ni kan koppla flera kliniker till samma widget och anpassa tjänster för varje klinik.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 lg:px-12 bg-apricot-bg">
+  <div class="max-w-screen-md mx-auto text-center space-y-6">
+    <h2 class="text-3xl lg:text-4xl font-extrabold satoshi text-ink">Redo att bli bokningsbar 24/7?</h2>
+    <p class="text-slate-text text-lg">Integrera Appointments och gör din mottagning bokningsbar direkt på din hemsida.</p>
+    <a href="kontakt.html" class="clinical-gradient text-white px-10 py-4 rounded-xl font-bold text-lg shadow-xl shadow-duck-blue/20 hover:scale-[1.02] transition-transform inline-block">Boka kostnadsfri genomgång</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#181E29] text-white py-16 px-6 lg:px-12">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="space-y-4"><p class="text-2xl font-bold satoshi">Vården.se</p><p class="text-slate-400 text-sm leading-relaxed">Sveriges största samlingsplats för legitimerad vård.</p></div>
+    <div class="space-y-3"><p class="font-semibold text-sm uppercase tracking-wider text-slate-400">Tjänster</p><a href="tjanster.html" class="block text-slate-300 hover:text-white text-sm transition-colors">Alla tjänster</a><a href="appointments.html" class="block text-slate-300 hover:text-white text-sm transition-colors">Appointments</a><a href="ai-chatt.html" class="block text-slate-300 hover:text-white text-sm transition-colors">AI-chatt</a></div>
+    <div class="space-y-3"><p class="font-semibold text-sm uppercase tracking-wider text-slate-400">Kontakt</p><p class="text-slate-300 text-sm">salj@varden.se</p><p class="text-slate-300 text-sm">support@varden.se</p><p class="text-slate-300 text-sm">ekonomi@varden.se</p></div>
+    <div class="space-y-3"><p class="font-semibold text-sm uppercase tracking-wider text-slate-400">Företag</p><a href="kontakt.html" class="block text-slate-300 hover:text-white text-sm transition-colors">Kontakta oss</a></div>
+  </div>
+  <div class="max-w-screen-xl mx-auto mt-12 pt-8 border-t border-white/10 text-center"><p class="text-slate-500 text-sm">&copy; 2026 Vården Online Sverige AB. Alla rättigheter förbehållna.</p></div>
+</footer>
+</body></html>
