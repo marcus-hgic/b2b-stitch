@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sv"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kontakt - Vården.se</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#055F72",
+              "primary-hover": "#4D9BA9",
+              "accent": "#FE8E7A",
+              "charcoal": "#181E29",
+              "muted": "#566075",
+              "cloud": "#F1F3F7",
+              "whisper": "rgba(86, 96, 117, 0.12)",
+              "warm-bg": "#F9EAEA"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1.25rem",
+              "2xl": "1.5rem"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #181E29; }
+    h1, h2, h3, h4, .satoshi { font-family: 'Manrope', sans-serif; letter-spacing: -0.02em; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .nordic-mist { box-shadow: 0 8px 24px rgba(5, 95, 114, 0.06); }
+    .form-card { box-shadow: 0 12px 40px rgba(5, 95, 114, 0.08); }
+    input:focus, select:focus { outline: none; border-color: #055F72; box-shadow: 0 0 0 3px rgba(5, 95, 114, 0.2); }
+    .fade-in { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Sticky Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#055F72] shadow-lg shadow-black/10">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1280px] mx-auto">
+    <a href="index.html" class="text-2xl font-bold tracking-tight text-white satoshi">Vården.se</a>
+    <div class="hidden md:flex items-center gap-x-8">
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="tjanster.html">Tjänster</a>
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="appointments.html">Appointments</a>
+      <a class="text-slate-100/80 hover:text-white transition-colors font-medium" href="ai-chatt.html">AI-chatt</a>
+      <a class="text-white border-b-2 border-[#FE8E7A] pb-1 font-medium" href="kontakt.html">Kontakt</a>
+    </div>
+    <a href="kontakt.html" class="bg-[#FE8E7A] text-[#181E29] px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all duration-200">
+      Kom igång
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="pt-32 pb-12 px-6 bg-white">
+  <div class="max-w-[1280px] mx-auto text-center">
+    <h1 class="text-4xl lg:text-5xl font-extrabold satoshi text-[#181E29] leading-tight tracking-tight mb-4">
+      Kom igång med Vården.se
+    </h1>
+    <p class="text-lg text-[#566075] max-w-xl mx-auto leading-relaxed">
+      Fyll i formuläret så kontaktar vi dig inom 24 timmar.
+    </p>
+  </div>
+</header>
+
+<!-- Contact Form + Info Split -->
+<section class="pb-24 pt-8 px-6 bg-white">
+  <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+    <!-- LEFT: Contact Form (60%) -->
+    <div class="lg:col-span-7">
+      <div class="bg-white rounded-xl p-8 lg:p-10 form-card border border-[rgba(86,96,117,0.12)]">
+        <form id="contact-form" class="space-y-6">
+
+          <!-- Kliniknamn -->
+          <div>
+            <label for="clinic-name" class="block text-sm font-medium text-[#181E29] mb-2">Kliniknamn <span class="text-red-500">*</span></label>
+            <input type="text" id="clinic-name" name="clinic-name" required placeholder="Er kliniks namn"
+              class="w-full px-4 py-3.5 rounded-lg border border-[rgba(86,96,117,0.12)] bg-white text-[#181E29] placeholder-[#566075]/60 text-base transition-all duration-200"/>
+          </div>
+
+          <!-- Kontaktperson -->
+          <div>
+            <label for="contact-person" class="block text-sm font-medium text-[#181E29] mb-2">Kontaktperson <span class="text-red-500">*</span></label>
+            <input type="text" id="contact-person" name="contact-person" required placeholder="Förnamn och efternamn"
+              class="w-full px-4 py-3.5 rounded-lg border border-[rgba(86,96,117,0.12)] bg-white text-[#181E29] placeholder-[#566075]/60 text-base transition-all duration-200"/>
+          </div>
+
+          <!-- E-post -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-[#181E29] mb-2">E-post <span class="text-red-500">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="namn@klinik.se"
+              class="w-full px-4 py-3.5 rounded-lg border border-[rgba(86,96,117,0.12)] bg-white text-[#181E29] placeholder-[#566075]/60 text-base transition-all duration-200"/>
+          </div>
+
+          <!-- Telefon -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-[#181E29] mb-2">Telefon <span class="text-[#566075] text-xs font-normal">(valfritt)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="070-123 45 67"
+              class="w-full px-4 py-3.5 rounded-lg border border-[rgba(86,96,117,0.12)] bg-white text-[#181E29] placeholder-[#566075]/60 text-base transition-all duration-200"/>
+          </div>
+
+          <!-- Kategori -->
+          <div>
+            <label for="category" class="block text-sm font-medium text-[#181E29] mb-2">Kategori</label>
+            <select id="category" name="category"
+              class="w-full px-4 py-3.5 rounded-lg border border-[rgba(86,96,117,0.12)] bg-white text-[#181E29] text-base transition-all duration-200 appearance-none"
+              style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22%3E%3Cpath fill=%22%23566075%22 d=%22M2 4l4 4 4-4%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 1rem center;">
+              <option value="">Välj kategori</option>
+              <option value="tandlakare">Tandläkare</option>
+              <option value="vardcentral">Vårdcentral</option>
+              <option value="specialistvard">Specialistvård</option>
+              <option value="kvinnohalsa">Kvinnohälsa</option>
+              <option value="fysisk-halsa">Fysisk hälsa</option>
+              <option value="psykisk-halsa">Psykisk hälsa</option>
+              <option value="annat">Annat</option>
+            </select>
+          </div>
+
+          <!-- Consent Checkbox -->
+          <div class="flex items-start gap-3 pt-2">
+            <input type="checkbox" id="consent" name="consent" required
+              class="mt-1 w-5 h-5 rounded border-[rgba(86,96,117,0.12)] text-[#055F72] focus:ring-[#055F72] focus:ring-offset-0 cursor-pointer"/>
+            <label for="consent" class="text-sm text-[#566075] leading-relaxed cursor-pointer">
+              Jag godkänner att Vården.se kontaktar mig angående min förfrågan
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit"
+            class="w-full bg-[#055F72] text-white py-4 rounded-xl font-bold text-base hover:bg-[#4D9BA9] active:translate-y-[1px] transition-all duration-200 mt-4">
+            Skicka förfrågan
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- RIGHT: Contact Info Cards (40%) -->
+    <div class="lg:col-span-5 space-y-6">
+
+      <!-- Sales Card -->
+      <div class="bg-white rounded-xl p-6 border border-[rgba(86,96,117,0.12)] nordic-mist hover:translate-y-[-4px] transition-all duration-300">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[#055F72]">mail</span>
+          </div>
+          <div>
+            <a href="mailto:salj@varden.se" class="text-[#055F72] font-bold text-base hover:text-[#4D9BA9] transition-colors">salj@varden.se</a>
+            <p class="text-sm text-[#566075] mt-1 leading-relaxed">Frågor om tjänster och hur ni blir kund</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Card -->
+      <div class="bg-white rounded-xl p-6 border border-[rgba(86,96,117,0.12)] nordic-mist hover:translate-y-[-4px] transition-all duration-300">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[#055F72]">headset_mic</span>
+          </div>
+          <div>
+            <a href="mailto:support@varden.se" class="text-[#055F72] font-bold text-base hover:text-[#4D9BA9] transition-colors">support@varden.se</a>
+            <p class="text-sm text-[#566075] mt-1 leading-relaxed">Frågor om er profil eller ändringar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Billing Card -->
+      <div class="bg-white rounded-xl p-6 border border-[rgba(86,96,117,0.12)] nordic-mist hover:translate-y-[-4px] transition-all duration-300">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[#055F72]">receipt_long</span>
+          </div>
+          <div>
+            <a href="mailto:ekonomi@varden.se" class="text-[#055F72] font-bold text-base hover:text-[#4D9BA9] transition-colors">ekonomi@varden.se</a>
+            <p class="text-sm text-[#566075] mt-1 leading-relaxed">Avtal och fakturor</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<section class="py-16 bg-[#F1F3F7] px-6">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex items-center justify-center gap-4 text-center md:text-left">
+        <div class="w-12 h-12 rounded-full bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#055F72]">schedule</span>
+        </div>
+        <span class="text-[#181E29] font-semibold">Vi svarar inom 24 timmar</span>
+      </div>
+      <div class="flex items-center justify-center gap-4 text-center md:text-left">
+        <div class="w-12 h-12 rounded-full bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#055F72]">group</span>
+        </div>
+        <span class="text-[#181E29] font-semibold">18 000+ mottagningar medverkar</span>
+      </div>
+      <div class="flex items-center justify-center gap-4 text-center md:text-left">
+        <div class="w-12 h-12 rounded-full bg-[#055F72]/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[#055F72]">verified_user</span>
+        </div>
+        <span class="text-[#181E29] font-semibold">Ingen bindningstid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Customer Logos -->
+<section class="py-16 bg-white px-6">
+  <div class="max-w-[1280px] mx-auto">
+    <p class="text-center text-sm font-bold satoshi uppercase tracking-widest text-[#566075] mb-10">Förtroende från ledande kliniker</p>
+    <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale">
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Audika</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">KRY</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Capio</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Aleris</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Praktikertjänst</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Doktor.se</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Min Doktor</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Nytida</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">GHP</span>
+      <span class="text-2xl font-bold satoshi text-[#181E29]">Sophiahemmet</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#181E29] border-t border-slate-800">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-[1280px] mx-auto">
+    <div class="space-y-4">
+      <div class="text-xl font-bold text-white satoshi">Vården.se</div>
+      <p class="text-slate-400 text-sm leading-relaxed">Sveriges största samlingsplats för vård och hälsa. Vi hjälper vårdgivare och patienter att hitta varandra.</p>
+    </div>
+    <div class="space-y-4">
+      <h5 class="text-white font-medium satoshi">Meny</h5>
+      <ul class="space-y-2">
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="tjanster.html">Tjänster</a></li>
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="appointments.html">Appointments</a></li>
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="ai-chatt.html">AI-chatt</a></li>
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h5 class="text-white font-medium satoshi">Kontakt</h5>
+      <ul class="space-y-2">
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:salj@varden.se">salj@varden.se</a></li>
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:support@varden.se">support@varden.se</a></li>
+        <li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="mailto:ekonomi@varden.se">ekonomi@varden.se</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h5 class="text-white font-medium satoshi">Följ oss</h5>
+      <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-sm">share</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1280px] mx-auto px-8 py-6 border-t border-slate-800/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <p class="text-slate-500 text-xs">&copy; 2026 Vården.se. Alla rättigheter förbehållna.</p>
+    <div class="flex gap-6">
+      <a class="text-slate-500 hover:text-white text-xs" href="#">Integritetspolicy</a>
+      <a class="text-slate-500 hover:text-white text-xs" href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Reveal Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+</script>
+
+</body></html>
