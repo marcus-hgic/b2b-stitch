@@ -71,18 +71,18 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-slate-400 text-xs">
-          &copy; 2026 Vården Online Sverige AB. Alla rättigheter förbehållna.
+          &copy; {new Date().getFullYear()} Vården Online Sverige AB. Alla rättigheter förbehållna.
         </p>
         <div className="flex gap-6">
-          <a className="text-slate-400 hover:text-white text-xs" href="#">
+          <Link className="text-slate-400 hover:text-white text-xs" href="/integritetspolicy">
             Integritetspolicy
-          </a>
-          <a className="text-slate-400 hover:text-white text-xs" href="#">
+          </Link>
+          <Link className="text-slate-400 hover:text-white text-xs" href="/villkor">
             Användarvillkor
-          </a>
-          <a className="text-slate-400 hover:text-white text-xs" href="#">
+          </Link>
+          <Link className="text-slate-400 hover:text-white text-xs" href="/cookies">
             Cookies
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

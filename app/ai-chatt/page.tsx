@@ -28,7 +28,7 @@ import { aiChattFaq } from "@/data/faq";
 import { aiChattTestimonials } from "@/data/testimonials";
 
 export const metadata: Metadata = {
-  title: "AI-chatt",
+  title: "AI-chatt — Digitalt patientstöd dygnet runt",
   description:
     "AI-driven patientkommunikation dygnet runt. Skräddarsydd AI-chatt som svarar patienter, bokar tider och avlastar din mottagning.",
   openGraph: { locale: "sv_SE", type: "website" },
@@ -86,13 +86,13 @@ export default function AiChattPage() {
               AI-chatt
             </span>
             <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8 text-white">
-              Skr&auml;ddarsydd AI-chatt f&ouml;r din mottagning
+              Skräddarsydd AI-chatt för din mottagning
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-              Ge dina patienter omedelbar hj&auml;lp &mdash; dygnet runt.
-              V&aring;r AI-assistent svarar p&aring; fr&aring;gor, bokar tider
-              och avlastar receptionen s&aring; att ditt team kan fokusera p&aring;
-              det som verkligen kr&auml;vs.
+              Ge dina patienter omedelbar hjälp — dygnet runt.
+              Vår AI-assistent svarar på frågor, bokar tider
+              och avlastar receptionen så att ditt team kan fokusera på
+              det som verkligen krävs.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-10">
@@ -100,7 +100,7 @@ export default function AiChattPage() {
                 href="/kontakt"
                 className="bg-apricot text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
               >
-                Kom ig&aring;ng nu
+                Kom igång nu
               </Link>
               <Link
                 href="#prissattning"
@@ -147,7 +147,7 @@ export default function AiChattPage() {
                   </div>
                   <div className="bg-cloud rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
                     <p className="text-sm">
-                      Hej! Jag &auml;r er digitala assistent. Hur kan jag hj&auml;lpa dig idag?
+                      Hej! Jag är er digitala assistent. Hur kan jag hjälpa dig idag?
                     </p>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function AiChattPage() {
                 <div className="flex justify-end">
                   <div className="clinical-gradient text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
                     <p className="text-sm">
-                      Jag vill boka en tid f&ouml;r unders&ouml;kning.
+                      Jag vill boka en tid för undersökning.
                     </p>
                   </div>
                 </div>
@@ -168,7 +168,7 @@ export default function AiChattPage() {
                   </div>
                   <div className="bg-cloud rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
                     <p className="text-sm">
-                      Sj&auml;lvklart! Jag hittar lediga tider &aring;t dig. Vilken dag passar b&auml;st?
+                      Självklart! Jag hittar lediga tider åt dig. Vilken dag passar bäst?
                     </p>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ export default function AiChattPage() {
       <CtaSection
         heading="Redo att förbättra din patientkommunikation?"
         subtext="Starta din kostnadsfria testperiod idag och se hur AI-chatten kan avlasta din mottagning."
-        buttonText="Kom igång nu"
+        buttonText="Boka kostnadsfri genomgång"
       />
     </>
   );

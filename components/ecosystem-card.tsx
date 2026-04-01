@@ -60,7 +60,7 @@ export default function EcosystemCard({ product }: EcosystemCardProps) {
           href={product.href}
           className="text-duck-blue font-semibold hover:underline"
         >
-          L&auml;s mer &rarr;
+          Läs mer →
         </Link>
       </div>
     </div>
