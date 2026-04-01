@@ -59,14 +59,14 @@ export default function HomePage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <header className="hero-gradient relative px-6 pt-32 pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-7">
-            <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8 text-white">
+      <header className="hero-gradient relative px-6 pt-40 pb-32 overflow-hidden min-h-[90vh] flex items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+          <div className="lg:col-span-6">
+            <h1 className="text-5xl lg:text-7xl font-extrabold font-headline tracking-tight leading-[1.08] mb-10 text-white">
               Ökad synlighet, fler bokningar och minskad administrativ
               belastning.
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-xl lg:text-2xl text-white/70 leading-relaxed mb-12 max-w-2xl">
               Vården.se hjälper privata vårdgivare att bli hittade där patienter
               söker vård, skapa ett smidigt bokningsflöde och avlasta
               mottagningen genom digitalt stöd som hanterar det återkommande.
@@ -99,7 +99,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-6 relative">
             <div className="relative z-10">
               <Image
                 src="https://img.varden.se/varden.se/b2b/hero/search-varden--2048x812.webp"
@@ -107,7 +107,7 @@ export default function HomePage() {
                 width={2048}
                 height={812}
                 priority
-                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
+                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)] scale-110 origin-left"
               />
             </div>
           </div>
@@ -127,20 +127,43 @@ export default function HomePage() {
       <section className="py-24 bg-white px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeading heading="Varför välja Vården.se?" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-            {valueProps.map((vp) => (
-              <div key={vp.title} className="group">
-                <div className="w-14 h-14 bg-duck-blue/10 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
-                  <vp.Icon className="text-duck-blue" size={28} />
-                </div>
-                <h3 className="text-2xl font-bold font-headline mb-4">
-                  {vp.title}
-                </h3>
-                <p className="text-slate-text leading-relaxed">
-                  {vp.description}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            {/* Card 1: Patienter söker vård digitalt */}
+            <div className="group bg-gradient-to-br from-duck-blue/5 to-duck-blue/10 border-l-4 border-duck-blue rounded-2xl p-8">
+              <div className="w-16 h-16 rounded-2xl bg-duck-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Search className="text-duck-blue" size={40} />
               </div>
-            ))}
+              <h3 className="text-xl font-bold font-headline mb-4">
+                {valueProps[0].title}
+              </h3>
+              <p className="text-slate-text leading-relaxed">
+                {valueProps[0].description}
+              </p>
+            </div>
+            {/* Card 2: Ett smidigt bokningsflöde */}
+            <div className="group bg-gradient-to-br from-[#4D9BA9]/5 to-[#4D9BA9]/10 border-l-4 border-duck-blue-light rounded-2xl p-8">
+              <div className="w-16 h-16 rounded-2xl bg-[#4D9BA9]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <CalendarDays className="text-duck-blue-light" size={40} />
+              </div>
+              <h3 className="text-xl font-bold font-headline mb-4">
+                {valueProps[1].title}
+              </h3>
+              <p className="text-slate-text leading-relaxed">
+                {valueProps[1].description}
+              </p>
+            </div>
+            {/* Card 3: Digitalt AI-stöd */}
+            <div className="group bg-gradient-to-br from-apricot/5 to-apricot/10 border-l-4 border-apricot rounded-2xl p-8">
+              <div className="w-16 h-16 rounded-2xl bg-apricot/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Bot className="text-apricot" size={40} />
+              </div>
+              <h3 className="text-xl font-bold font-headline mb-4">
+                {valueProps[2].title}
+              </h3>
+              <p className="text-slate-text leading-relaxed">
+                {valueProps[2].description}
+              </p>
+            </div>
           </div>
         </div>
       </section>

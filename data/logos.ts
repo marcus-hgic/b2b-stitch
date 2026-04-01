@@ -6,7 +6,6 @@ export const customerLogos: Logo[] = [
   { name: "Audika", src: `${CDN}/customer-logos/audika--768x768.webp` },
   { name: "DCH", src: `${CDN}/customer-logos/dch--768x768.webp` },
   { name: "Folktandvården", src: `${CDN}/customer-logos/folktandvarden--768x768.webp` },
-  { name: "HLTHY", src: `${CDN}/customer-logos/hlthy--768x768.webp` },
   { name: "Kry", src: `${CDN}/customer-logos/kry--768x768.webp` },
   { name: "Mamamia", src: `${CDN}/customer-logos/mamamia--768x768.webp` },
   { name: "Meliva", src: `${CDN}/customer-logos/meliva--768x768.webp` },
@@ -17,6 +16,7 @@ export const customerLogos: Logo[] = [
 
 export const ehrLogos: Logo[] = [
   { name: "Almasoft", src: `${CDN}/ehr-logos/almasoft--768x768.webp` },
+  { name: "HLTHY", src: `${CDN}/customer-logos/hlthy--768x768.webp` },
   { name: "Clinicbuddy", src: `${CDN}/ehr-logos/clinicbuddy--768x768.webp` },
   { name: "EG", src: `${CDN}/ehr-logos/eg--768x768.webp` },
   { name: "EG Hano", src: `${CDN}/ehr-logos/eg-hano--768x768.webp` },

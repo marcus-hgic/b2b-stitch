@@ -31,18 +31,18 @@ export default function EcosystemCard({ product }: EcosystemCardProps) {
     >
       {/* Image section */}
       {product.imageSrc ? (
-        <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+        <div className="bg-gradient-to-br from-cloud to-duck-blue/5 p-4" style={{ aspectRatio: "16/9" }}>
           <Image
             src={product.imageSrc}
             alt={product.title}
             width={1024}
             height={576}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="w-full h-full object-cover rounded-xl shadow-md transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </div>
       ) : (
         <div
-          className="flex items-center justify-center bg-gradient-to-br from-cloud to-white"
+          className="flex items-center justify-center bg-gradient-to-br from-duck-blue/5 to-apricot/5"
           style={{ aspectRatio: "16/9" }}
         >
           {IconComponent && (
