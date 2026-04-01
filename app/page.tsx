@@ -59,7 +59,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <header className="hero-gradient relative px-6 pt-28 pb-14 overflow-hidden">
+      <header className="hero-gradient relative px-6 pt-24 pb-10 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           <div className="lg:col-span-5">
             <h1 className="text-4xl lg:text-5xl font-extrabold font-headline tracking-tight leading-[1.12] mb-8 text-white">

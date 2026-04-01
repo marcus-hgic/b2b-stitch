@@ -15,15 +15,15 @@ export default function TrustLogoStrip({ title, logos }: TrustLogoStripProps) {
             {title}
           </p>
         )}
-        <div className="flex flex-wrap justify-center items-center gap-8">
+        <div className="flex flex-wrap justify-center items-center gap-6 lg:gap-10">
           {logos.map((logo) => (
             <Image
               key={logo.name}
               src={logo.src}
               alt={logo.name}
-              width={120}
-              height={40}
-              className="object-contain"
+              width={100}
+              height={32}
+              className="object-contain h-6 lg:h-8 w-auto"
             />
           ))}
         </div>
