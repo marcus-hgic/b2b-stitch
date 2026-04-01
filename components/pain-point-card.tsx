@@ -8,6 +8,7 @@ import {
   Search,
   ShieldAlert,
   PhoneOff,
+  GitBranch,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -20,6 +21,7 @@ const iconMap: Record<string, LucideIcon> = {
   Search,
   ShieldAlert,
   PhoneOff,
+  GitBranch,
 };
 
 interface PainPointCardProps {

@@ -3,6 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { LeadFormProvider } from "@/components/lead-form-provider";
 import LeadFormModal from "@/components/lead-form-modal";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,7 +25,9 @@ export default function RootLayout({
     <html lang="sv" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="antialiased overflow-x-hidden">
         <LeadFormProvider>
+          <Navbar />
           {children}
+          <Footer />
           <LeadFormModal />
         </LeadFormProvider>
       </body>

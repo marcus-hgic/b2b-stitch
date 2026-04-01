@@ -3,8 +3,10 @@ import type { EcosystemProduct } from "@/lib/types";
 import {
   Search,
   Calendar,
+  CalendarDays,
   MessageSquare,
   Globe,
+  LayoutDashboard,
   HelpCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -12,8 +14,10 @@ import type { LucideIcon } from "lucide-react";
 const iconMap: Record<string, LucideIcon> = {
   Search,
   Calendar,
+  CalendarDays,
   MessageSquare,
   Globe,
+  LayoutDashboard,
   HelpCircle,
 };
 
