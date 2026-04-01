@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import {
   Link,
   Camera,
@@ -23,28 +22,6 @@ export const metadata: Metadata = {
   openGraph: { locale: "sv_SE", type: "website" },
 };
 
-const CDN = "https://img.varden.se/varden.se/b2b";
-
-const productImages: Record<string, { src: string; alt: string; width: number; height: number }> = {
-  "Vårdgivarprofil": {
-    src: `${CDN}/hero/vardgivarprofil-tandvard--2048x1030.webp`,
-    alt: "Vårdgivarprofil på Vården.se med sökresultat",
-    width: 2048,
-    height: 1030,
-  },
-  Appointments: {
-    src: `${CDN}/product/appointments-trio--2048x1393.webp`,
-    alt: "Appointments bokningsflöde i tre steg",
-    width: 2048,
-    height: 1393,
-  },
-  "Vårdanpassad hemsida": {
-    src: `${CDN}/product/product-search-wide--2048x1024.webp`,
-    alt: "Vårdanpassad hemsida för mottagningar",
-    width: 2048,
-    height: 1024,
-  },
-};
 
 const secondaryIconMap: Record<string, LucideIcon> = {
   Link,
@@ -75,25 +52,9 @@ export default function TjansterPage() {
       <section className="py-24 bg-cloud px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ecosystemProducts.map((product) => {
-              const imgData = productImages[product.title];
-              return (
-                <div key={product.title} className="flex flex-col gap-0">
-                  {imgData && (
-                    <div className="bg-white rounded-t-2xl p-4 border border-b-0 border-whisper overflow-hidden">
-                      <Image
-                        src={imgData.src}
-                        alt={imgData.alt}
-                        width={imgData.width}
-                        height={imgData.height}
-                        className="w-full h-auto rounded-lg"
-                      />
-                    </div>
-                  )}
-                  <EcosystemCard product={product} />
-                </div>
-              );
-            })}
+            {ecosystemProducts.map((product) => (
+              <EcosystemCard key={product.title} product={product} />
+            ))}
           </div>
         </div>
       </section>
