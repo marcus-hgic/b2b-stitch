@@ -5,7 +5,7 @@ import {
   CalendarDays,
   Globe,
   Phone,
-  Instagram,
+  MessageCircle,
   Smartphone,
   Shield,
   CreditCard,
@@ -38,7 +38,7 @@ const iconMap: Record<string, LucideIcon> = {
   CalendarDays,
   Globe,
   Phone,
-  Instagram,
+  MessageCircle,
   Smartphone,
 };
 

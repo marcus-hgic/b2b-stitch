@@ -10,7 +10,7 @@ export default function FeatureZigzag({ features }: FeatureZigzagProps) {
     <div className="space-y-16">
       {features.map((feature, index) => {
         const Icon =
-          (LucideIcons as Record<string, LucideIcons.LucideIcon>)[
+          (LucideIcons as unknown as Record<string, LucideIcons.LucideIcon>)[
             feature.icon
           ] ?? LucideIcons.Sparkles;
         const isOdd = index % 2 !== 0;
