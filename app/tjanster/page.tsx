@@ -6,9 +6,6 @@ import {
   Calculator,
   Megaphone,
   Globe,
-  CalendarDays,
-  MessageSquare,
-  LayoutDashboard,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -36,16 +33,10 @@ const productImages: Record<string, { src: string; alt: string; width: number; h
     height: 1030,
   },
   Appointments: {
-    src: `${CDN}/product/appointments-hero--1536x1844.webp`,
-    alt: "Appointments bokningsvy i Vården.se",
-    width: 384,
-    height: 1133,
-  },
-  "AI-chatt": {
-    src: `${CDN}/product/appointments-aesthetica-alt--1536x1844.webp`,
-    alt: "AI-chatt gränssnitt för patientstöd",
-    width: 384,
-    height: 1133,
+    src: `${CDN}/product/appointments-trio--2048x1393.webp`,
+    alt: "Appointments bokningsflöde i tre steg",
+    width: 2048,
+    height: 1393,
   },
   "Vårdanpassad hemsida": {
     src: `${CDN}/product/product-search-wide--2048x1024.webp`,

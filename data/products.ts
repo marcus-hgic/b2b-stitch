@@ -29,7 +29,6 @@ export const ecosystemProducts: EcosystemProduct[] = [
     icon: "MessageSquare",
     href: "/ai-chatt",
     accentColor: "#D97706",
-    imageSrc: `${CDN}/product/appointments-dentiq--1536x1844.webp`,
   },
   {
     title: "Vårdanpassad hemsida",
@@ -38,7 +37,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     icon: "LayoutDashboard",
     href: "/tjanster",
     accentColor: "#E11D48",
-    imageSrc: `${CDN}/product/product-search--2048x1024.webp`,
+    imageSrc: `${CDN}/product/product-search-wide--2048x1024.webp`,
   },
 ];
 

@@ -1,12 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Globe,
+  CalendarDays,
+  MessageSquare,
+  LayoutDashboard,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { EcosystemProduct } from "@/lib/types";
+
+const iconMap: Record<string, LucideIcon> = {
+  Globe,
+  CalendarDays,
+  MessageSquare,
+  LayoutDashboard,
+};
 
 interface EcosystemCardProps {
   product: EcosystemProduct;
 }
 
 export default function EcosystemCard({ product }: EcosystemCardProps) {
+  const IconComponent = iconMap[product.icon];
+
   return (
     <div
       className={`group bg-white rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border ${
@@ -14,15 +30,24 @@ export default function EcosystemCard({ product }: EcosystemCardProps) {
       }`}
     >
       {/* Image section */}
-      {product.imageSrc && (
-        <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
+      {product.imageSrc ? (
+        <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
           <Image
             src={product.imageSrc}
             alt={product.title}
             width={1024}
-            height={640}
+            height={576}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
+        </div>
+      ) : (
+        <div
+          className="flex items-center justify-center bg-gradient-to-br from-cloud to-white"
+          style={{ aspectRatio: "16/9" }}
+        >
+          {IconComponent && (
+            <IconComponent size={64} className="text-duck-blue-light/40" />
+          )}
         </div>
       )}
 

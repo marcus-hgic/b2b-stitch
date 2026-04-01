@@ -23,7 +23,7 @@ export default function TrustLogoStrip({ title, logos }: TrustLogoStripProps) {
               alt={logo.name}
               width={120}
               height={40}
-              className="grayscale hover:grayscale-0 transition duration-300 object-contain"
+              className="object-contain"
             />
           ))}
         </div>

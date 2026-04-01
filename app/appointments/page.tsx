@@ -72,10 +72,10 @@ export default function AppointmentsPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative z-10">
               <Image
-                src="https://img.varden.se/varden.se/b2b/product/appointments-hero--1536x1844.webp"
-                alt="Appointments bokningswidget"
-                width={384}
-                height={1133}
+                src="https://img.varden.se/varden.se/b2b/product/appointments-trio--2048x1393.webp"
+                alt="Appointments bokningsflöde i tre steg"
+                width={2048}
+                height={1393}
                 priority
                 className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
               />
