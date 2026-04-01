@@ -13,6 +13,7 @@ import {
   Code,
   Palette,
   BotMessageSquare,
+  Send,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -40,6 +41,7 @@ const iconMap: Record<string, LucideIcon> = {
   Phone,
   MessageCircle,
   Smartphone,
+  Instagram: Send,
 };
 
 const trustBadges = [
@@ -76,17 +78,17 @@ export default function AiChattPage() {
   return (
     <>
       {/* ── 1. Product Hero ── */}
-      <header className="relative px-6 pt-32 pb-20 overflow-hidden">
+      <header className="hero-gradient relative px-6 pt-32 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           {/* Left column */}
           <div className="lg:col-span-7">
-            <span className="inline-block text-sm uppercase tracking-widest text-duck-blue-light bg-duck-blue-light/10 px-4 py-1.5 rounded-full font-semibold mb-4">
+            <span className="inline-block text-sm uppercase tracking-widest text-white/80 bg-white/10 px-4 py-1.5 rounded-full font-semibold mb-4">
               AI-chatt
             </span>
-            <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8">
+            <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8 text-white">
               Skr&auml;ddarsydd AI-chatt f&ouml;r din mottagning
             </h1>
-            <p className="text-xl text-slate-text leading-relaxed mb-10 max-w-2xl">
+            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
               Ge dina patienter omedelbar hj&auml;lp &mdash; dygnet runt.
               V&aring;r AI-assistent svarar p&aring; fr&aring;gor, bokar tider
               och avlastar receptionen s&aring; att ditt team kan fokusera p&aring;
@@ -96,13 +98,13 @@ export default function AiChattPage() {
             <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="/kontakt"
-                className="clinical-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
+                className="bg-apricot text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
               >
                 Kom ig&aring;ng nu
               </Link>
               <Link
                 href="#prissattning"
-                className="border-2 border-duck-blue text-duck-blue px-8 py-4 rounded-xl font-bold text-lg hover:bg-duck-blue/5 transition-all"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
               >
                 Se priser
               </Link>
@@ -113,9 +115,9 @@ export default function AiChattPage() {
               {trustBadges.map(({ Icon, label }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 text-sm text-slate-text"
+                  className="flex items-center gap-2 text-sm text-white/70"
                 >
-                  <Icon size={18} className="text-duck-blue" />
+                  <Icon size={18} className="text-white/80" />
                   <span>{label}</span>
                 </div>
               ))}

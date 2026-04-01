@@ -40,3 +40,17 @@
 .nordic-shadow {
   box-shadow: 0 8px 24px rgba(22, 28, 39, 0.04);
 }
+
+.hero-gradient {
+  background: linear-gradient(135deg, #032D38 0%, #055F72 50%, #0A7A94 100%);
+}
+.stats-gradient {
+  background: linear-gradient(135deg, #032D38 0%, #055F72 100%);
+}
+.hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}

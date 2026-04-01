@@ -1,5 +1,5 @@
+import Image from "next/image";
 import type { Feature } from "@/lib/types";
-import * as LucideIcons from "lucide-react";
 
 interface FeatureZigzagProps {
   features: Feature[];
@@ -9,10 +9,6 @@ export default function FeatureZigzag({ features }: FeatureZigzagProps) {
   return (
     <div className="space-y-16">
       {features.map((feature, index) => {
-        const Icon =
-          (LucideIcons as unknown as Record<string, LucideIcons.LucideIcon>)[
-            feature.icon
-          ] ?? LucideIcons.Sparkles;
         const isOdd = index % 2 !== 0;
 
         return (
@@ -20,13 +16,25 @@ export default function FeatureZigzag({ features }: FeatureZigzagProps) {
             key={feature.title}
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
-            {/* Placeholder icon card */}
+            {/* Image */}
             <div
-              className={`bg-cloud rounded-2xl h-64 flex items-center justify-center ${
+              className={`rounded-2xl overflow-hidden shadow-md border border-whisper bg-cloud ${
                 isOdd ? "md:order-2" : ""
               }`}
             >
-              <Icon className="text-duck-blue" size={56} strokeWidth={1.5} />
+              {feature.imageSrc ? (
+                <Image
+                  src={feature.imageSrc}
+                  alt={feature.title}
+                  width={1024}
+                  height={676}
+                  className="w-full h-auto object-cover"
+                />
+              ) : (
+                <div className="h-64 flex items-center justify-center text-slate-text text-sm">
+                  Bild saknas
+                </div>
+              )}
             </div>
 
             {/* Text content */}

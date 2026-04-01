@@ -45,12 +45,14 @@ export interface EcosystemProduct {
   href: string;
   accentColor: string;
   featured?: boolean;
+  imageSrc?: string;
 }
 
 export interface Feature {
   icon: string;
   title: string;
   description: string;
+  imageSrc?: string;
 }
 
 export interface SecondaryService {

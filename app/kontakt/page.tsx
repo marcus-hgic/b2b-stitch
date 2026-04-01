@@ -40,19 +40,19 @@ export default function KontaktPage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <section className="py-20 pt-32 text-center px-6">
+      <section className="hero-gradient py-20 pt-32 text-center px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-6 text-white">
             Kom igång med Vården.se
           </h1>
-          <p className="text-xl text-slate-text leading-relaxed">
+          <p className="text-xl text-white/70 leading-relaxed">
             Fyll i formuläret så kontaktar vi dig inom 24 timmar.
           </p>
         </div>
       </section>
 
       {/* ── 2. Split layout: Form + Contact info ── */}
-      <section className="px-6 pb-24">
+      <section className="px-6 py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left — Contact Form */}
           <div className="lg:col-span-7 bg-white rounded-2xl border border-whisper p-8">

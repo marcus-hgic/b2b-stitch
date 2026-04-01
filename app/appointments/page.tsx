@@ -46,16 +46,16 @@ export default function AppointmentsPage() {
   return (
     <>
       {/* ── 1. Product Hero ── */}
-      <header className="relative px-6 pt-32 pb-20 overflow-hidden">
+      <header className="hero-gradient relative px-6 pt-32 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7">
-            <span className="inline-block text-sm uppercase tracking-widest text-duck-blue-light bg-duck-blue-light/10 px-4 py-1.5 rounded-full font-semibold mb-4">
+            <span className="inline-block text-sm uppercase tracking-widest text-white/80 bg-white/10 px-4 py-1.5 rounded-full font-semibold mb-4">
               Våra tjänster
             </span>
-            <h1 className="text-4xl lg:text-5xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8">
+            <h1 className="text-4xl lg:text-5xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8 text-white">
               Förenkla bokning på er egna hemsida med Appointments
             </h1>
-            <p className="text-xl text-slate-text leading-relaxed mb-10 max-w-2xl">
+            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
               Ge patienter möjligheten att boka tid direkt på er hemsida,
               dygnet runt. Appointments integreras med ert journalsystem och
               anpassas efter er verksamhet.
@@ -63,21 +63,21 @@ export default function AppointmentsPage() {
 
             <Link
               href="/kontakt"
-              className="inline-block clinical-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
+              className="inline-block bg-apricot text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
             >
               Boka en demo
             </Link>
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="relative z-10 bg-white rounded-2xl shadow-2xl p-4 overflow-hidden">
+            <div className="relative z-10">
               <Image
                 src="https://img.varden.se/varden.se/b2b/product/appointments-hero--1536x4532.webp"
                 alt="Appointments bokningswidget"
                 width={384}
-                height={461}
+                height={1133}
                 priority
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
               />
             </div>
           </div>

@@ -28,22 +28,30 @@ export const metadata: Metadata = {
 
 const CDN = "https://img.varden.se/varden.se/b2b";
 
-const productImages: Record<string, { src: string; alt: string }> = {
-  Vårdgivarprofil: {
-    src: `${CDN}/hero/search-varden--2048x812.webp`,
+const productImages: Record<string, { src: string; alt: string; width: number; height: number }> = {
+  "Vårdgivarprofil": {
+    src: `${CDN}/hero/vardgivarprofil-tandvard--2048x1030.webp`,
     alt: "Vårdgivarprofil på Vården.se med sökresultat",
+    width: 2048,
+    height: 1030,
   },
   Appointments: {
-    src: `${CDN}/hero/search-varden--2048x812.webp`,
+    src: `${CDN}/product/appointments-hero--1536x4532.webp`,
     alt: "Appointments bokningsvy i Vården.se",
+    width: 384,
+    height: 1133,
   },
   "AI-chatt": {
-    src: `${CDN}/hero/search-varden--2048x812.webp`,
+    src: `${CDN}/product/appointments-aesthetica-alt--1536x4532.webp`,
     alt: "AI-chatt gränssnitt för patientstöd",
+    width: 384,
+    height: 1133,
   },
   "Vårdanpassad hemsida": {
-    src: `${CDN}/hero/search-varden--2048x812.webp`,
+    src: `${CDN}/product/product-search-wide--2048x1024.webp`,
     alt: "Vårdanpassad hemsida för mottagningar",
+    width: 2048,
+    height: 1024,
   },
 };
 
@@ -58,13 +66,17 @@ export default function TjansterPage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <header className="relative px-6 pt-32 pb-20 overflow-hidden">
+      <header className="hero-gradient relative px-6 pt-32 pb-20 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
-          <SectionHeading
-            label="Våra tjänster"
-            heading="Ett komplett digitalt ekosystem för er mottagning"
-            subtext="Modulära lösningar som fungerar oberoende av varandra eller som en kraftfull helhet — allt för att ni ska nå fler patienter, fylla fler tider och växa."
-          />
+          <span className="inline-block text-sm uppercase tracking-widest text-white/80 bg-white/10 px-4 py-1.5 rounded-full font-semibold mb-4">
+            Våra tjänster
+          </span>
+          <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-6 text-white">
+            Ett komplett digitalt ekosystem för er mottagning
+          </h1>
+          <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
+            Modulära lösningar som fungerar oberoende av varandra eller som en kraftfull helhet — allt för att ni ska nå fler patienter, fylla fler tider och växa.
+          </p>
         </div>
       </header>
 
@@ -72,20 +84,25 @@ export default function TjansterPage() {
       <section className="py-24 bg-cloud px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ecosystemProducts.map((product) => (
-              <div key={product.title} className="flex flex-col gap-0">
-                <div className="bg-white rounded-t-2xl p-4 border border-b-0 border-whisper overflow-hidden">
-                  <Image
-                    src={productImages[product.title]?.src ?? `${CDN}/hero/search-varden--2048x812.webp`}
-                    alt={productImages[product.title]?.alt ?? product.title}
-                    width={2048}
-                    height={812}
-                    className="w-full h-auto rounded-lg"
-                  />
+            {ecosystemProducts.map((product) => {
+              const imgData = productImages[product.title];
+              return (
+                <div key={product.title} className="flex flex-col gap-0">
+                  {imgData && (
+                    <div className="bg-white rounded-t-2xl p-4 border border-b-0 border-whisper overflow-hidden">
+                      <Image
+                        src={imgData.src}
+                        alt={imgData.alt}
+                        width={imgData.width}
+                        height={imgData.height}
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <EcosystemCard product={product} />
                 </div>
-                <EcosystemCard product={product} />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -59,14 +59,14 @@ export default function HomePage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <header className="relative px-6 pt-32 pb-20 overflow-hidden">
+      <header className="hero-gradient relative px-6 pt-32 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7">
-            <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8">
+            <h1 className="text-5xl lg:text-6xl font-extrabold font-headline tracking-tight leading-[1.1] mb-8 text-white">
               Ökad synlighet, fler bokningar och minskad administrativ
               belastning.
             </h1>
-            <p className="text-xl text-slate-text leading-relaxed mb-10 max-w-2xl">
+            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
               Vården.se hjälper privata vårdgivare att bli hittade där patienter
               söker vård, skapa ett smidigt bokningsflöde och avlasta
               mottagningen genom digitalt stöd som hanterar det återkommande.
@@ -75,13 +75,13 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4 mb-16">
               <Link
                 href="/kontakt"
-                className="clinical-gradient text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
+                className="bg-apricot text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
               >
                 Kom igång nu
               </Link>
               <Link
                 href="/tjanster"
-                className="border-2 border-duck-blue text-duck-blue px-8 py-4 rounded-xl font-bold text-lg hover:bg-duck-blue/5 transition-all"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
               >
                 Se hur det fungerar
               </Link>
@@ -91,7 +91,7 @@ export default function HomePage() {
               {categories.map((cat) => (
                 <span
                   key={cat}
-                  className="bg-cloud px-4 py-2 rounded-full text-sm font-medium text-duck-blue"
+                  className="bg-white/10 px-4 py-2 rounded-full text-sm font-medium text-white/80"
                 >
                   {cat}
                 </span>
@@ -100,14 +100,14 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="relative z-10 bg-white rounded-2xl shadow-2xl p-4 overflow-hidden">
+            <div className="relative z-10">
               <Image
                 src="https://img.varden.se/varden.se/b2b/hero/search-varden--2048x812.webp"
                 alt="Vården.se sökresultat för vårdgivare"
                 width={2048}
                 height={812}
                 priority
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)]"
               />
             </div>
           </div>

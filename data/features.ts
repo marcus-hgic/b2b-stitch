@@ -1,30 +1,37 @@
 import type { Feature } from "@/lib/types";
 
+const CDN = "https://img.varden.se/varden.se/b2b";
+
 export const appointmentsFeatures: Feature[] = [
   {
     icon: "Monitor",
     title: "Placera bokningsflödet där det passar bäst",
     description: "Som pop-up vid knapptryck eller direkt på en landningssida. Oavsett flöde, ärendetyp eller journalsystem erbjuder Appointments en enhetlig användarupplevelse utan att kräva en mobilapp.",
+    imageSrc: `${CDN}/product/appointments-booking-flow--2048x1352.webp`,
   },
   {
     icon: "Palette",
     title: "Anpassa designen till er verksamhet",
     description: "Integrera Appointments sömlöst genom att anpassa med er logotyp, färger och typsnitt. Skapa en helhet som känns som en naturlig del av er hemsida.",
+    imageSrc: `${CDN}/product/appointments-customize--2048x1473.webp`,
   },
   {
     icon: "Building2",
     title: "Visa rätt tjänster för rätt kliniker",
     description: "Skräddarsy tjänster för varje klinik och skapa en tydlig bild av ert kompletta utbud — allt på patientens villkor.",
+    imageSrc: `${CDN}/product/appointments-widget--2048x1799.webp`,
   },
   {
     icon: "SlidersHorizontal",
     title: "Sätt affärsregler med förval",
     description: "Forma bokningsflödet med affärsregler som styr patienten till rätt tjänst och tider. Anpassa vilka ärendetyper och bokningstider som visas.",
+    imageSrc: `${CDN}/product/appointments-calendar--2048x1031.webp`,
   },
   {
     icon: "UserCheck",
     title: "Ge patienten kontroll över sitt val av utövare",
     description: "Ge patienter möjligheten att välja utövare när det är relevant. Visa utövare och tillgänglighet smidigt i samma steg.",
+    imageSrc: `${CDN}/product/appointments-booking-detail--2048x1888.webp`,
   },
 ];
 
