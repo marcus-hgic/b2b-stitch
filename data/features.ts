@@ -43,3 +43,45 @@ export const aiChattFeatures: Feature[] = [
   { icon: "Instagram", title: "Instagram DM", description: "Svara på frågor direkt i Instagram DM. Slipp tappa patienter till konkurrenter." },
   { icon: "Smartphone", title: "Mobilvänlig chatt", description: "Dina patienter kan chatta från vilken enhet som helst. Perfekt anpassad för mobil, surfplatta och dator." },
 ];
+
+export const vardgivarprofilFeatures: Feature[] = [
+  {
+    icon: "Target",
+    title: "Nå rätt patienter med målgruppsanpassad branding",
+    description: "Er profil anpassas för att nå de patienter som söker just den typ av vård ni erbjuder. Med tydlig kategorisering och relevant information hamnar ni framför rätt ögon.",
+    imageSrc: `${CDN}/hero/vardgivarprofil-tandvard--2048x1030.webp`,
+  },
+  {
+    icon: "Search",
+    title: "SEO-optimerad profil för bättre synlighet",
+    description: "Varje profil byggs med sökmotoroptimering i grunden. Er mottagning syns högt i sökresultaten när patienter söker efter vård i ert område.",
+    imageSrc: `${CDN}/product/product-search--2048x1024.webp`,
+  },
+  {
+    icon: "MapPin",
+    title: "Central portal där patienter hittar och bokar",
+    description: "Vården.se samlar legitimerad vård på ett ställe. Patienter kan enkelt hitta er, jämföra tjänster och boka direkt — utan omvägar.",
+    imageSrc: `${CDN}/product/product-search-wide--2048x1024.webp`,
+  },
+];
+
+export const aiHemsidaFeatures: Feature[] = [
+  {
+    icon: "Search",
+    title: "SEO-optimerad för vårdrelaterade sökningar",
+    description: "Er hemsida rankas högt på Google när patienter söker efter er typ av vård i ert område.",
+    imageSrc: `${CDN}/product/product-search--2048x1024.webp`,
+  },
+  {
+    icon: "CalendarDays",
+    title: "Integrerad med ert bokningssystem",
+    description: "Patienter kan boka tid direkt från er hemsida via Appointments-widgeten.",
+    imageSrc: `${CDN}/product/appointments-booking-flow--2048x1352.webp`,
+  },
+  {
+    icon: "Palette",
+    title: "Professionell design utan krångel",
+    description: "Vi bygger och underhåller er hemsida. Ni fokuserar på vård.",
+    imageSrc: `${CDN}/product/product-vardgivarprofil--2048x1024.webp`,
+  },
+];
