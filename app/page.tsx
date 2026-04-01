@@ -59,20 +59,20 @@ export default function HomePage() {
   return (
     <>
       {/* ── 1. Hero ── */}
-      <header className="hero-gradient relative px-6 pt-40 pb-32 overflow-hidden min-h-[90vh] flex items-center">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
-          <div className="lg:col-span-6">
-            <h1 className="text-5xl lg:text-7xl font-extrabold font-headline tracking-tight leading-[1.08] mb-10 text-white">
+      <header className="hero-gradient relative px-6 pt-36 pb-28 overflow-hidden min-h-[85vh] flex items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+          <div className="lg:col-span-5">
+            <h1 className="text-4xl lg:text-5xl font-extrabold font-headline tracking-tight leading-[1.12] mb-8 text-white">
               Ökad synlighet, fler bokningar och minskad administrativ
               belastning.
             </h1>
-            <p className="text-xl lg:text-2xl text-white/70 leading-relaxed mb-12 max-w-2xl">
+            <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-xl">
               Vården.se hjälper privata vårdgivare att bli hittade där patienter
               söker vård, skapa ett smidigt bokningsflöde och avlasta
               mottagningen genom digitalt stöd som hanterar det återkommande.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-16">
+            <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="/kontakt"
                 className="bg-apricot text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
@@ -99,15 +99,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative">
-            <div className="relative z-10">
+          <div className="lg:col-span-7 relative">
+            <div className="relative z-10 lg:scale-115 lg:translate-x-8 lg:-translate-y-4">
               <Image
                 src="https://img.varden.se/varden.se/b2b/hero/search-varden--2048x812.webp"
                 alt="Vården.se sökresultat för vårdgivare"
                 width={2048}
                 height={812}
                 priority
-                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_24px_48px_rgba(0,0,0,0.3)] scale-110 origin-left"
+                className="w-full h-auto rounded-2xl hero-float drop-shadow-[0_32px_64px_rgba(0,0,0,0.35)]"
               />
             </div>
           </div>
