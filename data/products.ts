@@ -10,7 +10,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     icon: "Globe",
     href: "/tjanster",
     accentColor: "#059669",
-    imageSrc: `${CDN}/product/product-vardgivarprofil--2048x2880.webp`,
+    imageSrc: `${CDN}/product/product-vardgivarprofil--2048x1024.webp`,
   },
   {
     title: "Appointments",
@@ -20,7 +20,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     href: "/appointments",
     accentColor: "#0284C7",
     featured: true,
-    imageSrc: `${CDN}/product/appointments-trio--2048x3392.webp`,
+    imageSrc: `${CDN}/product/appointments-trio--2048x1393.webp`,
   },
   {
     title: "AI-chatt",
@@ -29,7 +29,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     icon: "MessageSquare",
     href: "/ai-chatt",
     accentColor: "#D97706",
-    imageSrc: `${CDN}/product/appointments-dentiq--1536x4532.webp`,
+    imageSrc: `${CDN}/product/appointments-dentiq--1536x1844.webp`,
   },
   {
     title: "Vårdanpassad hemsida",
@@ -38,7 +38,7 @@ export const ecosystemProducts: EcosystemProduct[] = [
     icon: "LayoutDashboard",
     href: "/tjanster",
     accentColor: "#E11D48",
-    imageSrc: `${CDN}/product/product-search--2048x2880.webp`,
+    imageSrc: `${CDN}/product/product-search--2048x1024.webp`,
   },
 ];
 
